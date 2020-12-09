@@ -9,9 +9,12 @@ RUN wget https://repo.continuum.io/archive/Anaconda3-2019.10-Linux-x86_64.sh && 
     rm -f Anaconda3-2019.10-Linux-x86_64.sh
 ENV PATH /opt/anaconda3/bin:$PATH
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip \
+    pip install node \
+    pip install npm \
+    pip install jupyter-emacskeys
 WORKDIR /
-CMD ["jupyter","lab","--ip=0.0.0.0","--allow-root","--LabApp.token=="]
+CMD ["jupyter","lab","--ip=0.0.0.0","--allow-root","--LabApp.token=''"]
 
 
 
